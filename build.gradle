@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Kafka Streams dependency
+    implementation 'org.apache.kafka:kafka-streams:3.9.0'
+
+    // Serialization libraries (JSON, Avro, etc.) if needed
+    // For JSON:
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.5'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.5'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
